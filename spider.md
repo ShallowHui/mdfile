@@ -33,7 +33,7 @@ $ pip install requests
 $ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple requests
 ```
 
-下面我们就来进行一个python原生爬虫的小项目实战——爬取网络小说的章节目录
+下面我们就来用面向过程的方法进行一个python原生爬虫的小项目实战开发——爬取网络小说的章节目录
 
 ## Python原生爬虫的开发
 
