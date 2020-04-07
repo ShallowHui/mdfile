@@ -25,24 +25,22 @@ cover: /img/myphotos/mysql.jpg
 
 关于my.ini文件，是MySQL的一个配置文件，无非就是配置一些参数，如端口号，最大连接数，创建数据库时的编码格式等等。这些MySQL都是有默认配置的，也可以通过命令在MySQL中自定义配置，my.ini的作用就是将命令配置持久保存下来，所以这个文件有没有都影响不大。如果你需要自己配置MySQL参数并保存，可以在安装目录下新建一个my.ini文件，填入以下参数，注意目录路径要填自己实际的路径：
 
-``` code
-[mysql]
-# 设置mysql客户端默认字符集
-default-character-set=utf8
-[mysqld]
-#设置3306端口
-port=3306
-# 设置mysql的安装目录
-basedir=D:\Program Files\MySQL\
-# 设置mysql数据库的数据的存放目录
-datadir=D:\Program Files\MySQL\data
-# 允许最大连接数
-max_connections=200
-# 服务端使用的字符集默认为8比特编码的latin1字符集
-character-set-server=utf8
-# 创建新表时将使用的默认存储引擎
-default-storage-engine=INNODB
-```
+    [mysql]
+    # 设置mysql客户端默认字符集
+    default-character-set=utf8
+    [mysqld]
+    #设置3306端口
+    port=3306
+    # 设置mysql的安装目录
+    basedir=D:\Program Files\MySQL\
+    # 设置mysql数据库的数据的存放目录
+    datadir=D:\Program Files\MySQL\data
+    # 允许最大连接数
+    max_connections=200
+    # 服务端使用的字符集默认为8比特编码的latin1字符集
+    character-set-server=utf8
+    # 创建新表时将使用的默认存储引擎
+    default-storage-engine=INNODB
 
 + 用ANSI编码格式（记事本默认格式）保存为my.ini，存放在MySQL安装目录下。
 
