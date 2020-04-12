@@ -1,7 +1,7 @@
 ---
 title: Python原生爬虫
 date: 2020-03-25 13:53:52
-tags: Python爬虫
+tags: Python爬虫,正则表达式
 categories: Python
 cover: /img/myphotos/spider.jpg
 ---
@@ -78,7 +78,7 @@ print(chapter_list)
 
 ![list](/img/myphotos/spiderlist.png)
 
-+ 可以看出findall方法返回一个匹配结果形成的列表，我会专门另写一篇博客来介绍用来在字符串中匹配特定内容的正则表达式
++ 可以看出findall函数返回一个匹配结果形成的列表，我会另写一篇博客来专门介绍用来在字符串中匹配特定内容的[正则表达式](http://zunhuier.club/2020/04/11/regularexpression/)。
 
 ### 清洗数据，打印输出
 
