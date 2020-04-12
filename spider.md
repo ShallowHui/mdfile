@@ -1,7 +1,9 @@
 ---
 title: Python原生爬虫
 date: 2020-03-25 13:53:52
-tags: Python爬虫,正则表达式
+tags:
+    - Python爬虫
+    - 正则表达式
 categories: Python
 cover: /img/myphotos/spider.jpg
 ---
