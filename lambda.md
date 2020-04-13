@@ -1,7 +1,7 @@
 ---
-title: lambda表达式
+title: Lambda表达式
 date: 2020-04-05 20:32:52
-tags: lambda
+tags: Lambda表达式
 categories: Python
 cover: /img/myphotos/lambda.jpeg
 ---
