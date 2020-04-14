@@ -9,7 +9,7 @@ cover: /img/myphotos/gitpage.jpg
 
 ### [简介](https://baike.baidu.com/item/GIT/12647237?fr=aladdin)
 
-个人觉得Linus大佬是用C语言里的指针和栈数据结构写出了Git。Git是套命令行工具，去[官网](https://git-scm.com/)直接下载安装即可(window下需要配环境变量，mac下不用(JDK8之后会自动将一个命令替身安装在/usr/bin/目录下)，linux下直接终端输入sudo apt-get install git)。安装好后用命令配置个人用户信息(git配置按优先级从低到高分为：全局配置，适用于全体电脑用户→用户配置，适用于当前电脑用户→项目(特定仓库)配置)：
+个人觉得Linus大佬是用C语言里的指针和栈数据结构写出了Git。Git是套命令行工具，去[官网](https://git-scm.com/)直接下载安装即可(window下需要配环境变量，mac下不用(git会自动将一个命令替身安装在/usr/bin/目录下)，linux下直接终端输入sudo apt-get install git)。安装好后用命令配置个人用户信息(git配置按优先级从低到高分为：全局配置，适用于全体电脑用户→用户配置，适用于当前电脑用户→项目(特定仓库)配置)：
 
 ``` bash
 $ git config --global user.name "输入你的名字"
