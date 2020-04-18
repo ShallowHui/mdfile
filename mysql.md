@@ -15,13 +15,13 @@ cover: /img/myphotos/mysql.jpg
 
 ### 配置
 
->*MySQL Community Server是MySQL的开源版本，其就是我们常用的数据库版本，已经是一个完整的数据库服务器了。MySQL Installer提供了Server及其它组件的安装，是MySQL集成的一个安装工具。推荐下载Installer，这样就不用进行下面的配置，因为在安装程序安装的时候都搞定了。这里就是要解决仅安装Server时遇到的一些问题。*
+>**MySQL Community Server是MySQL的开源版本，其就是我们常用的数据库版本，已经是一个完整的数据库服务器了。MySQL Installer提供了Server及其它组件的安装，是MySQL集成的一个安装工具。推荐下载Installer，这样就不用进行下面的配置，因为在安装程序安装的时候都搞定了。这里就是要解决仅安装Server时遇到的一些问题。**
 
 网上的资料说MySQL Server 5.7之后的版本都默认安装目录下不存在my.ini文件和data文件夹。那么需要我们自己创建。
 
 ![MySQL安装目录](/img/myphotos/mysqlcata.png)
 
-**首先要把MySQL安装目录下的bin目录添加到系统环境变量中，因为后面会在Cmd中用到MySQL自带的命令。**
+**首先要把MySQL安装目录下的bin目录添加到系统环境变量中，因为后面会在cmd中用到MySQL自带的命令。**
 
 关于my.ini文件，是MySQL的一个配置文件，无非就是配置一些参数，如端口号，最大连接数，创建数据库时的编码格式等等。这些MySQL都是有默认配置的，也可以通过命令在MySQL中自定义配置，my.ini的作用就是将命令配置持久保存下来，所以这个文件有没有都影响不大。如果你需要自己配置MySQL参数并保存，可以在安装目录下新建一个my.ini文件，填入以下参数，注意目录路径要填自己实际的路径：
 
@@ -73,7 +73,7 @@ cover: /img/myphotos/mysql.jpg
 启动服务：
 
 ``` bash
-> net start mysql #需要以管理员的身份打开Cmd
+> net start mysql #需要以管理员的身份打开cmd
 > # net stop mysql # 关闭服务
 ```
 
