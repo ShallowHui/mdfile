@@ -1,5 +1,5 @@
 ---
-title: git的简单命令使用
+title: Git的基础命令
 date: 2020-03-16 19:50:26
 tags: Git基础
 categories: Git
