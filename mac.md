@@ -2,6 +2,7 @@
 title: MacOS下用zsh配置环境变量
 date: 2020-04-15 15:03:29
 tags: MacOS
+categories: OS
 cover: /img/myphotos/mac.jpg
 ---
 ## 前言
