@@ -73,4 +73,4 @@ $ echo $PATH
 
 ## 小结
 
-由于Linux和MacOS都是类Unix系统（Linux是Linux内核，MacOS是Unix内核），Vim和Shell都是Linux的基础，这次配置环境的过程算是我开始接触Linux吧。
+由于Linux和MacOS都是类Unix系统，Vim和Shell都是Linux的基础，这次配置环境的过程算是我开始接触Linux。
