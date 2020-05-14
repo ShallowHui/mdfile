@@ -123,4 +123,40 @@ mysql> CREATE DATABASE 数据库名 DEFAULT CHARACTER SET utf8 COLLATE utf8_gene
 
 一般填false，不建议在没有服务器身份验证的情况下建立SSL连接。
 
+## 命令行下备份还原数据库
+
+备份先不用登录mysql，直接在命令行下执行命令，还原才需要先登录mysql。
+
+### 备份
+
+备份使用的是`mysqldump`命令，命令格式如下：
+
+``` bash
+$ mysqldump [远程服务器地址] -u用户名 -p密码 [-P端口号] 数据库名 [表名] > 备份路径
+```
+
++ 这里[]括起来是可以省略的意思。
+
+比如，在window下，备份一个本机的名为spring的数据库到D盘下，可以这样写命令：
+
+``` bash
+$ mysqldump -uroot -p888888 spring > d:\spring.sql
+```
+
+### 还原
+
+从上面可以知道，命令行备份数据库保存的是数据库完整的SQL脚本，还原就是要执行这个脚本，使用如下的`source`命令：
+
+``` bash
+$ source SQL脚本路径
+```
+
++ 如果备份完后就把数据库删了，那么还原之前要先重新创建数据库，并use它，再执行还原命令。
+
+比如，还原spring数据库：
+
+``` bash
+$ source d:\spring.sql
+```
+
 ## 未完待续
