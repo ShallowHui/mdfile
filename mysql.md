@@ -148,7 +148,7 @@ mysql> CREATE DATABASE 数据库名 DEFAULT CHARACTER SET utf8 COLLATE utf8_gene
 从上面可以知道，命令行备份数据库保存的是数据库完整的SQL脚本，还原就是要执行这个脚本，使用如下的`source`命令：
 
 ``` bash
-> source SQL脚本路径
+mysql> source SQL脚本路径
 ```
 
 + 如果备份完后就把数据库删了，那么还原之前要先重新创建数据库，并use它，再执行还原命令。
@@ -156,7 +156,7 @@ mysql> CREATE DATABASE 数据库名 DEFAULT CHARACTER SET utf8 COLLATE utf8_gene
 比如，还原spring数据库：
 
 ``` bash
-> source d:\spring.sql
+mysql> source d:\spring.sql
 ```
 
 ## 未完待续
