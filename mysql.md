@@ -135,7 +135,7 @@ mysql> CREATE DATABASE 数据库名 DEFAULT CHARACTER SET utf8 COLLATE utf8_gene
 > mysqldump [远程服务器地址] -u用户名 -p密码 [-P端口号] 数据库名 [表名] > 备份路径
 ```
 
-+ 这里[]括起来是可以省略的意思。
++ 这里[ ]括起来是可以省略的意思。
 
 比如，备份一个本机的名为spring的数据库到D盘下，可以这样写命令：
 
