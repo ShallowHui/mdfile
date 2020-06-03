@@ -1,7 +1,7 @@
 ---
-title: Python原生爬虫
+title: Python爬虫
 date: 2020-03-25 13:53:52
-tags: Python爬虫
+tags: 网络爬虫
 categories: Python
 cover: /img/myphotos/spider.jpg
 ---
