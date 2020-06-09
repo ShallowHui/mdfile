@@ -43,7 +43,7 @@ cover: /img/myphotos/thread.jpg
 
 ![线程的生命周期](/img/myphotos/thread.png)
 
-以往开发的程序，大多是单线程的，即一个程序只有从头到尾顺序执行这一条路径。然而现实世界中很多的过程都具有多条途径同时运作的特征。比如，我们可以一边喝咖啡，一边听音乐。再比如，一个Web服务器需要同时处理多个客户端的请求。
+以往开发的程序，大多是单线程的，即一个程序只有从头到尾顺序执行这一条路径，一般也就是main()方法所在线程，我们把它叫做主线程。然而现实世界中很多的过程都具有多条途径同时运作的特征。比如，我们可以一边喝咖啡，一边听音乐。再比如，一个Web服务器需要同时处理多个客户端的请求。
 
 多线程就是指在同一个进程中同时存在多个执行体，将程序执行过程并发化。一个进程在执行过程中可以产生多个线程，形成多条执行路径。线程不能单独存在，必须存在于进程中，由于同一个进程中的线程是共享同一块内存区域的，所以系统在产生一个线程，或是在各个线程之间切换时，负担要比进程小很多，线程间的通信也快得多。让CPU在同一时间段内执行一个程序中的多个代码段，使工作完成得更有效率，这就是多线程的概念。
 
@@ -52,6 +52,8 @@ cover: /img/myphotos/thread.jpg
 ### 线程的优先级和调度
 
 在多线程的程序中，每个线程都被赋予了一个执行优先级。优先级决定了线程被CPU执行的优先顺序。优先级高的线程可以在一段时间内获得比优先级低的线程更多的执行时间。
+
++ Java语言中线程的优先级从低到高以整数1~10表示，共分为10级。主线程的优先级默认为5。
 
 线程的调度就是指在各个线程之间分配CPU资源，多个线程的并发执行实际上是通过一个调度模型来进行的。线程调度的模型有两种：分时模型和抢占模型。
 
@@ -82,5 +84,305 @@ Java的基本类库中已定义了Thread这个基本类,内置了一组方法。
 构造方法：
 
 ![Thread类的构造](/img/myphotos/threadcreate.png)
+
+**还有一个最重要的方法：**
+
+    pubic void run(); //线程要执行的任务
+
+简单来说，就是必须要完成下面两件事：
+
+1. 继承Thread类。
+
+2. 重写run()方法，将线程所要执行的代码写在run()方法内。
+
++ 线程执行时，是从它的run()方法开始执行的。run()方法是线程执行的起点，就像main()方法是应用程序的执行起点，init()方法是小程序的执行起点一样。但我们在实际激活线程时，一般不直接调用run()方法，而是通过Thread类提供的start()方法来启动线程。
+
+#### 实例
+
+``` java
+class myThread extends Thread{                          //继承Thread类
+    private String who;                                 //定义一个私有属性
+    public String getWho(){
+        return who;
+    }
+    public myThread(String who){
+        this.who=who;
+    }
+    public void run(){                                  //重写覆盖掉Thread类中的run()方法
+        for(int i=0;i<5;i++){
+            try{         //因为sleep()方法会抛出InterruptedException异常，所以要写在try-catch块里
+                sleep((int)(1000*Math.random()));       //1000*Math.random()会让线程随机休眠0~1s
+            }
+            catch(InterruptedException e){}
+            System.out.println(who+"的线程正在执行!");
+        }
+    }
+}
+public class test{
+    public static void main(String[] args){
+        myThread you=new myThread("你");
+        myThread she=new myThread("她");
+        System.out.println("主线程的优先级为:"+Thread.currentThread().getPriority()); //先获取主线程的线程对象，再获得主线程的优先级
+        System.out.println(you.getWho()+"的线程优先级为:"+you.getPriority());
+        System.out.println(she.getWho()+"的线程优先级为:"+she.getPriority());
+        you.start();                                  //启动线程
+        she.start();
+        for(int i=0;i<5;i++){
+            System.out.println("main()方法所在的主线程正在执行!");
+        }
+    }
+}
+```
+
+运行结果：
+
+![继承Thread类](/img/myphotos/Threadclass.png)
+
+可以看出，新创建的线程优先级默认都是5，跟主线程的优先级一样。我们注意到，main()方法里的输出主线程的循环语句是写在最后面的，但它在另外两个线程之前就输出了，前面两条start语句不是将两个线程都启动了吗？这是因为main()方法所在的主线程启动了两个线程之后，是继续往下执行，还是跳到那两个线程中执行，全看这三个线程谁先抢到了CPU的使用权。一般来说是会先往下执行的，因为主线程是早就启动了的，不用再经过线程激活的过程，可以轻易先取得CPU的使用权继续往下执行。这里主线程可以先执行完，主要是因为另外两个线程激活后就马上休眠了。然后那两个线程的执行就看谁的休眠时间短，谁就可以得到更多的CPU使用时间。
+
+每次运行的结果都可能不同，再运行一遍的结果：
+
+    主线程的优先级为:5
+    你的线程优先级为:5
+    她的线程优先级为:5
+    main()方法所在的主线程正在执行!
+    main()方法所在的主线程正在执行!
+    main()方法所在的主线程正在执行!
+    main()方法所在的主线程正在执行!
+    main()方法所在的主线程正在执行!
+    她的线程正在执行!
+    你的线程正在执行!
+    她的线程正在执行!
+    她的线程正在执行!
+    你的线程正在执行!
+    你的线程正在执行!
+    她的线程正在执行!
+    她的线程正在执行!
+    你的线程正在执行!
+    你的线程正在执行!
+
+通过让线程休眠的方式，我们看到了Java语言的线程调度模式是抢占式的。但其实去掉休眠语句，并且还把其中一个线程的优先级调到最高，会发现程序运行结果可能不是抢占式的：
+
+``` java
+class myThread extends Thread{                          //继承Thread类
+    private String who;                                 //定义一个私有属性
+    public String getWho(){
+        return who;
+    }
+    public myThread(String who){
+        this.who=who;
+    }
+    public void run(){                                  //重写覆盖掉Thread类中的run()方法
+        for(int i=0;i<5;i++){
+            System.out.println(who+"的线程正在执行!");
+        }
+    }
+}
+public class test{
+    public static void main(String[] args){
+        myThread you=new myThread("你");
+        myThread she=new myThread("她");
+        System.out.println("主线程的优先级为:"+Thread.currentThread().getPriority()); //先获取主线程的线程对象，再获得主线程的优先级
+        you.setPriority(10);                          //将该线程设置为最高优先级
+        System.out.println(you.getWho()+"的线程优先级为:"+you.getPriority());
+        System.out.println(she.getWho()+"的线程优先级为:"+she.getPriority());
+        you.start();                                  //启动线程
+        she.start();
+        for(int i=0;i<5;i++){
+            System.out.println("main()方法所在的主线程正在执行!");
+        }
+    }
+}
+```
+
+运行结果：
+
+    主线程的优先级为:5
+    你的线程优先级为:10
+    她的线程优先级为:5
+    main()方法所在的主线程正在执行!
+    main()方法所在的主线程正在执行!
+    main()方法所在的主线程正在执行!
+    你的线程正在执行!
+    你的线程正在执行!
+    你的线程正在执行!
+    main()方法所在的主线程正在执行!
+    main()方法所在的主线程正在执行!
+    她的线程正在执行!
+    你的线程正在执行!
+    她的线程正在执行!
+    她的线程正在执行!
+    你的线程正在执行!
+    她的线程正在执行!
+    她的线程正在执行!
+
+我们可以发现，最高优先级的线程在抢到CPU使用权后，并没有按照抢占式调度模型一直执行下去直到线程完成任务，执行完毕。而是会自动让出CPU的使用权，即使线程没有遇到问题。倒是因为没有让其它线程休眠，主线程还没执行完就被高优先级的线程抢走了CPU使用权，说明线程的激活还是挺快的。
+
+这并不用感到奇怪，前面就提到过，线程的调度是跟当前操作系统有关的。这篇博客的代码是在MacOS上调试完成的，可能MacOS的线程调度模式就是这样的，不用过于纠结这个。可能想深入理解并发编程的原理，还得深入理解计算机操作系统，了解操作系统是如何管理进程，线程的。
+
+### 利用Runnable接口来创建线程
+
+前面介绍了利用Thread类来创建线程，但如果一个类继承了其它的类，由于Java是不支持多继承的，这个类就无法再继承Thread类了。这种情况下，就可以通过实现Runnable接口来创建线程。Runnable接口是Java语言中实现线程的接口，定义在`java.lang`包中，其中只提供了一个run()抽象方法。实质上，Thread类就是实现了Runnable接口，并增加了一组线程的方法，其子类才具有创建线程的功能。
+
+但由于Runnable接口并没有任何对线程支持的方法，所以需要用到Thread类的一个构造方法`Thread(Runnable target)`或者其它构造方法，只要参数中有Runnable实现类对象，我们把Runnable接口实现类的对象称为可运行对象，只需要把这个可运行对象作为参数传递给Thread类的构造方法，就可以创建出一个线程。线程会自动调用接口实现类中的run()方法。
+
+#### 实例
+
+``` java
+class myThread implements Runnable{                     //实现Runnable接口
+    private String who;                                 //定义一个私有属性
+    public String getWho(){
+        return who;
+    }
+    public myThread(String who){
+        this.who=who;
+    }
+    public void run(){                                  //重写覆盖掉run()方法
+        for(int i=0;i<5;i++){
+            try{
+                //由于没有继承Thread类，所以要通过Thread类调用其静态方法
+                Thread.sleep((int)(1000*Math.random()));
+            }
+            catch(InterruptedException e){}
+            System.out.println(who+"的线程正在执行!");
+        }
+    }
+}
+public class test{
+    public static void main(String[] args){
+        //先创建可运行对象
+        myThread you=new myThread("你");
+        myThread she=new myThread("她");
+        //再通过可运行对象创建线程对象
+        Thread t1=new Thread(you);
+        Thread t2=new Thread(she);
+        System.out.println("主线程的优先级为:"+Thread.currentThread().getPriority()); //先获取主线程的线程对象，再获得主线程的优先级
+        System.out.println(you.getWho()+"的线程优先级为:"+t1.getPriority());
+        System.out.println(she.getWho()+"的线程优先级为:"+t2.getPriority());
+        t1.start();                                  //启动线程
+        t2.start();
+        for(int i=0;i<5;i++){
+            System.out.println("main()方法所在的主线程正在执行!");
+        }
+    }
+}
+```
+
+运行结果：
+
+    主线程的优先级为:5
+    你的线程优先级为:5
+    她的线程优先级为:5
+    main()方法所在的主线程正在执行!
+    main()方法所在的主线程正在执行!
+    main()方法所在的主线程正在执行!
+    main()方法所在的主线程正在执行!
+    main()方法所在的主线程正在执行!
+    她的线程正在执行!
+    她的线程正在执行!
+    她的线程正在执行!
+    你的线程正在执行!
+    她的线程正在执行!
+    她的线程正在执行!
+    你的线程正在执行!
+    你的线程正在执行!
+    你的线程正在执行!
+    你的线程正在执行!
+
+## 线程间的数据共享
+
+同一进程中的多个线程可以共享同一块内存区域，并可以利用这些共享单元来实现数据的交换，实时通信和必要的同步操作。
+
+### 通过继承Thread类实现数据共享
+
+``` java
+class myThread extends Thread{        //继承Thread类
+    public myThread(String name){
+        super(name);                  //调用父类Thread类的一个构造方法，这样可以给线程对象起名字
+    }
+    public void run(){
+        for(int i=0;i<5;i++){
+            test.revoke();            //调用test类的静态方法对共享数据进行改动
+            System.out.println(getName()+"执行了revoke()方法：total="+test.getTotal()); //getName()方法获得当前线程的名字
+        }
+    }
+}
+public class test{
+    private static int total=10;      //定义一个模拟的共享数据
+    public static int getTotal(){
+        return total;
+    }
+    public static void revoke(){
+        total--;
+    }
+    public static void main(String[] args){
+        myThread t1=new myThread("一号线程");
+        myThread t2=new myThread("二号线程");
+        t1.start();                    //启动线程
+        t2.start();
+    }
+}
+```
+
+运行结果：
+
+    二号线程执行了revoke()方法：total=8
+    二号线程执行了revoke()方法：total=7
+    一号线程执行了revoke()方法：total=8
+    一号线程执行了revoke()方法：total=5
+    一号线程执行了revoke()方法：total=4
+    二号线程执行了revoke()方法：total=6
+    二号线程执行了revoke()方法：total=2
+    一号线程执行了revoke()方法：total=3
+    二号线程执行了revoke()方法：total=1
+    一号线程执行了revoke()方法：total=0
+
+### 通过实现Runnable接口来实现数据共享
+
+前面我们学会了通过创建Runnable接口实现类的可运行对象来创建线程，知道线程执行时会调用可运行对象里的run()方法。那么我们可以用同一个可运行对象创建多个线程，这样一来多个线程就共享同一个可运行对象里的数据了。
+
+``` java
+class myThread implements Runnable{
+    private int tickes=10;               //定义一个模拟的共享数据
+    public void run(){
+        while(tickes>0){
+            System.out.println(Thread.currentThread().getName()+"卖出了第"+tickes+"张票!");
+            tickes--;
+        }
+    }
+}
+public class test{
+    public static void main(String[] args){
+        myThread t=new myThread();              //先创建一个可运行对象
+        Thread t1=new Thread(t,"一号窗口");      //再用同一个可运行对象创建多个线程
+        Thread t2=new Thread(t,"二号窗口");
+        Thread t3=new Thread(t,"三号窗口");
+        t1.start();                             //启动线程
+        t2.start();
+        t3.start();
+    }
+}
+```
+
+运行结果：
+
+    二号窗口卖出了第10张票!
+    二号窗口卖出了第9张票!
+    三号窗口卖出了第10张票!
+    一号窗口卖出了第10张票!
+    一号窗口卖出了第6张票!
+    三号窗口卖出了第7张票!
+    二号窗口卖出了第8张票!
+    三号窗口卖出了第4张票!
+    一号窗口卖出了第5张票!
+    三号窗口卖出了第2张票!
+    二号窗口卖出了第3张票!
+    一号窗口卖出了第1张票!
+
+通过上面两个不同实现方法的例子，我们可以看出线程间实现了数据共享。但是都存在一个问题，即数据出现了脏读、重读。在第二个例子里，同一张票居然卖出多次，这在现实生活中就是一个很严重的bug了。我们可以这样理解：‘二号窗口’线程读到了数据为10，输出10然后将数据改为9，准备把9写入到内存变量中的时候，‘三号窗口’线程抢到了CPU的使用权，这时候它去读内存里的变量，还是没改变之前的10！这样就造成了数据的重读，接下来各个线程按照自己读到的数据去执行run()方法，就可能会出现各种各样的问题。
+
+**这些问题出现的根本原因就是并发的线程共享同一块内存区域造成的，要解决这些问题，就要引入线程间的同步控制，保证数据的读一致性和写一致性，这也是数据库中要面临的问题，很类似。**
+
+## 多线程的同步控制
 
 ## 未完待续
