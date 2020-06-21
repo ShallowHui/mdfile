@@ -204,7 +204,7 @@ public class ServiceBeanImpl{
 
 ### 自动装配
 
-自动装配就是在不用注解的方式下，通过<bean>元素的autowire属性来进行自动装配。
+自动装配就是在不用注解的方式下，通过`<bean>`元素的autowire属性来进行自动装配。
 
 ![Bean的自动装配](/img/myphotos/spring_bean_autowire.png)
 
