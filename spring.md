@@ -17,16 +17,16 @@ Spring具有简单、可测试和松耦合的特点，不仅适用于Web服务�
 
 Spring框架采用的是分层架构，它的一系列功能被分为20多个模块，大体上分为以下几大类：
 
-1. Core Container(核心容器)：
+1. **Core Container(核心容器)：**
     Spring的核心容器是Spring其它模块运行工作的基础，核心容器主要由Beans模块、Core模块、Context模块和Expression(SpEL)模块组成。其中Core是核心模块，它实现了Spring的IoC和DI核心功能。
 
-2. Data Access/Integration(数据访问/集成)：
+2. **Data Access/Integration(数据访问/集成)：**
     数据访问/集成层包括JDBC、ORM、OXM、JMS等模块。主要功能是提供了JDBC的抽象层，并可以良好地与一些数据持久化开源框架，如Hibernate、Mybatis等进行集成，大大地减少了在开发过程中对数据库进行操作的代码。
 
-3. Web：
+3. **Web：**
     Web层包括WebSocket、Servlet、Web和Portlet模块。对于Web服务器端开发而言，主要提供了对MVC模型的实现。
 
-4. 其它模块：
+4. **其它模块：**
     Spring的其它模块还有AOP、Aspects等模块。可以提供面向切面编程的实现，以及一些其它功能。
 
 ![Spring框架的体系结构](/img/myphotos/spring-overview.png)
