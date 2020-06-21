@@ -200,6 +200,8 @@ public class ServiceBeanImpl{
 <context:component-scan base-package="指定的包路径" />
 ```
 
++ 注意，Spring4.0以上的版本，使用注解扫描时，还需要额外在项目中导入Spring AOP模块的spring-aop-版本号.RELEASE.jar包。
+
 这样在配置文件中就不用配置Bean了，一句话就搞定了。而且基于注解的装配方式还有一个好处，就是不用为属性写setter()方法。
 
 ### 自动装配
