@@ -43,13 +43,13 @@ ApplicationContext applicationContext = new ClassPathXmlApplicationContext(Strin
 ``` xml
 <!-- 指定Spring配置文件的位置，多个配置文件以逗号分隔 -->
 <context-param>
-	<param-name>contextConfigLocation</param-name>
+    <param-name>contextConfigLocation</param-name>
     <param-value>classpath:applicationContext.xml</param-value>
-    <!-- Spring配置文件一般以applicationContext命名，直接放在项目的src目录下 -->
+<!-- Spring配置文件一般以applicationContext命名，直接放在项目的src目录下 -->
 </context-param>
 <!-- 指定Web服务器以ContextLoaderListener的方式启动Spring容器 -->
 <listener>
-	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 </listener>
 ```
 
@@ -86,7 +86,7 @@ Spring的配置文件支持XML和Properties两种格式的文件，一般使用X
 </beans>
 ```
 
-+ Spring的XML配置文件约束比较多，手写浪费时间也容易出错，可以直接复制相同Spring版本的配置文件约束就好了。或者打开Spring解压缩文件，在doc目录下，找到spring-framework-reference文件夹打开，然后找到html文件夹打开，最后找到index.html文件。用浏览器打开index.html文件，在Overview of SpringFramework下的7.2.1小节Configuration metadata中就有配置文件的约束信息，如果没有就在这个文件中多找找。
++ Spring的XML配置文件约束比较多，手写浪费时间也容易出错，可以直接复制相同Spring版本的配置文件约束就好了。或者打开Spring解压缩文件，在doc目录下，找到spring-framework-reference文件夹打开，然后找到html文件夹打开，最后找到index.html文件。用浏览器打开index.html文件，在Overview of SpringFramework下的Configuration metadata小节中就有配置文件的约束信息，如果没有就在这个文件中多找找。
 
 ## 获取Bean
 
@@ -118,7 +118,7 @@ IoC，全称Inversion of Control，意思是控制反转。DI，全称是Depende
 
 **站在Spring的角度来看，Spring容器负责实例化程序代码中需要用到或者说依赖的对象，并注入到代码的成员变量(属性)中，这就是Spring的依赖注入，DI。**
 
-依赖注入的作用就是在Spring容器中实例化一个对象(Bean、组件)时，可以动态地将其所依赖的对象注入其中，即为类的属性(成员变量)注入值。
+**依赖注入的作用就是在Spring容器中实例化一个对象(Bean、组件)时，可以动态地将其所依赖的对象注入其中，即为类的属性(成员变量)注入值。**
 
 Spring容器进行依赖注入的方式有两种：
 
@@ -153,8 +153,11 @@ Bean中的依赖对象，可以通过Spring的依赖注入方式进行装配，�
 ``` xml
 <!-- 设值注入 -->
 <bean id="beanname" class="beanclasspath">
+    <!-- 注入基本数据类型的值 -->
     <property name="属性名" value="属性值"></property>
-    <!-- 可以注入集合类型的属性 -->
+    <!-- 可以注入另一个Bean -->
+    <property name="属性名" ref="另一个Bean的id"></property>
+    <!-- 可以注入List类型的属性 -->
     <property name="属性名">
         <list>
             <value>"属性值1"</value>
@@ -172,13 +175,15 @@ Spring中定义了一系列的注解：
 
 ![Spring的注解](/img/myphotos/spring-annotation.png)
 
-在Bean类上添加相应层的注解，接着在依赖对象上添加@Autowired或@Resource注解，然后在Spring配置文件中完成对相应的Bean的配置，不用设置`<property>`，就可以实现对象的依赖注入了。
+在Bean类上添加相应层的注解，接着在依赖对象上添加@Autowired或@Resource注解，然后在Spring配置文件中完成对相应的Bean的配置，不用设置`<property>`，就可以实现依赖注入了。
 
 例子：
 
 ``` java
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired; //导入注解类
 import org.springframework.stereotype.Service;
+
+import com.java.util.AnotherBean;
 
 @Service
 public class ServiceBeanImpl{
@@ -186,11 +191,16 @@ public class ServiceBeanImpl{
     ...
 
     @Autowired
-    AnotherBean bean;
+    private AnotherBean bean;
 
     ...
 }
 
+```
+
+``` xml
+<bean id="AnotherBean" class="com.java.util.AnotherBean" />
+<bean id="ServiceBeanImpl" class="com.java.util.ServiceBeanImpl" /> 
 ```
 
 不过这样还是要在配置文件中配置相应的Bean，为此，Spring注解提供了一种高效的注解配置方式，也就是对包路径下的所有Bean文件进行注解的扫描，只需在配置文件中添加一条语句：
