@@ -21,19 +21,19 @@ cover: /img/myphotos/spider.jpg
 
 用python来开发当然要安装python开发环境，编写程序可以用python自带的IDLE或者其它IDE如Anaconda、Pycharm等等都可以，本篇博客使用的是VS Code。安装好了python开发环境后首先就要下载安装requests模块：
 
-+ 使用pip进行安装
++ 使用pip进行安装：
 
 ``` bash
 $ pip install requests
 ```
 
-如果下载速度慢，下载站点可以使用国内的清华镜像站
+如果下载速度慢，下载站点可以使用国内的清华镜像站：
 
 ``` bash
 $ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple requests
 ```
 
-下面我们就来用面向过程的方法进行一个python原生爬虫的小项目实战开发——爬取网络小说的章节目录
+下面我们就来用面向过程的方法进行一个python原生爬虫的小项目实战开发——爬取网络小说的章节目录。
 
 ## Python原生爬虫的开发
 
