@@ -94,7 +94,7 @@ Spring的配置文件支持XML和Properties两种格式的文件，一般使用X
 
 1. Object getBean(String BeanID)：需要将返回结果强制转型。
 
-2. `<T>` T getBean(Class`<T>` BeanType)：泛型方法，不需要强制转型。
+2. &lt;T&gt; getBean(Class&lt;T&gt; BeanType)：泛型方法，不需要强制转型。
 
 例子：
 
