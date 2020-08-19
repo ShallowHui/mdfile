@@ -3,13 +3,14 @@ title: Git的基础命令
 date: 2020-03-16 19:50:26
 tags: Git基础
 categories: Git
-cover: /img/myphotos/gitpage.jpg
+cover: https://cdn.jsdelivr.net/gh/shallowhui/cdn/top_img/gitpage.jpg
+description: 这篇文章简单地入门Git这个工具，介绍了版本控制的概念。文章后面用来记录Git的常用命令。
 ---
 ## Git——分布式版本控制系统
 
 ### [简介](https://baike.baidu.com/item/GIT/12647237?fr=aladdin)
 
-个人觉得Linus大佬是用C语言里的指针和栈数据结构写出了Git。Git是套命令行工具，去[官网](https://git-scm.com/)直接下载安装即可(window下需要配环境变量，mac下不用(git会自动将一个命令替身安装在/usr/bin/目录下)，linux下直接终端输入sudo apt-get install git)。安装好后用命令配置个人用户信息(git配置按优先级从低到高分为：全局配置，适用于全体电脑用户→用户配置，适用于当前电脑用户→项目(特定仓库)配置)：
+Linus大佬花了两周的时间用C语言写出了Git。Git是套命令行工具，去[官网](https://git-scm.com/)直接下载安装即可(window下需要配环境变量，mac下不用(git会自动将一个命令替身安装在/usr/bin/目录下)，linux下直接终端输入sudo apt-get install git)。安装好后用命令配置个人用户信息(git配置按优先级从低到高分为：全局配置，适用于全体电脑用户→用户配置，适用于当前电脑用户→项目(特定仓库)配置)：
 
 ``` bash
 $ git config --global user.name "输入你的名字"
@@ -34,7 +35,7 @@ $ git config --global user.email "输入你的邮箱"
 
 git追踪的是修改，不是文件本身。分支指向当前提交，HEAD指向当前分支，解决合并冲突需要手动修改文件然后再提交。
 
-![Branch](/img/myphotos/git.jpg)
+![Branch](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/git/git.jpg)
 
 ### 初始化一个本地仓库
 

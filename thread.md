@@ -3,7 +3,8 @@ title: Java多线程
 date: 2020-04-27 12:44:45
 tags: 并发编程
 categories: Java
-cover: /img/myphotos/thread.jpg
+cover: https://cdn.jsdelivr.net/gh/shallowhui/cdn/top_img/thread.jpg
+description: 这篇文章介绍了进程、线程的基本概念，以及如何在Java中进行简单的多线程编程，并且注意到了并发带来的安全问题。
 ---
 ## 前言
 
@@ -41,7 +42,7 @@ cover: /img/myphotos/thread.jpg
 
 所谓的线程，其实与进程相似，也是一个执行中的程序，但线程是一个比进程更小的执行单位，有自身的产生、运行、消亡的过程：
 
-![线程的生命周期](/img/myphotos/thread.png)
+![线程的生命周期](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/thread/thread.png)
 
 以往开发的程序，大多是单线程的，即一个程序只有从头到尾顺序执行这一条路径，一般也就是main()方法所在线程，我们把它叫做主线程。然而现实世界中很多的过程都具有多条途径同时运作的特征。比如，我们可以一边喝咖啡，一边听音乐。再比如，一个Web服务器需要同时处理多个客户端的请求。
 
@@ -77,13 +78,13 @@ Java语言实现多线程的方法有两种：一种是继承java.lang包中的T
 
 Java的基本类库中已定义了Thread这个基本类，其中内置了一组方法。利用这些方法可以去产生一个新的线程、执行一个线程、终止一个线程或让其消亡、查看线程的执行状态。下面是Thread类的一些常用方法：
 
-![Thread类的常用方法](/img/myphotos/threadmethod01.png)
+![Thread类的常用方法](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/thread/threadmethod01.png)
 
-![Thread类的常用方法](/img/myphotos/threadmethod02.png)
+![Thread类的常用方法](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/thread/threadmethod02.png)
 
 构造方法：
 
-![Thread类的构造](/img/myphotos/threadcreate.png)
+![Thread类的构造](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/thread/threadcreate.png)
 
 **还有一个最重要的方法：**
 
@@ -136,7 +137,7 @@ public class test{
 
 运行结果：
 
-![继承Thread类](/img/myphotos/Threadclass.png)
+![继承Thread类](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/thread/Threadclass.png)
 
 可以看出，新创建的线程优先级默认都是5，跟主线程的优先级一样。我们注意到，main()方法里的输出主线程的循环语句是写在最后面的，但它在另外两个线程之前就输出了，前面两条start语句不是将两个线程都启动了吗？这是因为main()方法所在的主线程启动了两个线程之后，是继续往下执行，还是跳到那两个线程中执行，全看这三个线程谁先抢到了CPU的使用权。一般来说是会先往下执行的，因为主线程是早就启动了的，不用再经过线程激活的过程，可以轻易先取得CPU的使用权继续往下执行。不过这里主线程可以先执行完，主要原因是因为另外两个线程激活后就马上休眠了。主线程执行完后，那两个线程的执行就看谁的休眠时间短，谁就可以得到更多的CPU使用时间。
 

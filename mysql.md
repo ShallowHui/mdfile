@@ -3,7 +3,8 @@ title: Window下MySQL常见问题解决
 date: 2020-03-28 20:12:02
 tags: Window
 categories: MySQL
-cover: /img/myphotos/mysql.jpg
+cover: https://cdn.jsdelivr.net/gh/shallowhui/cdn/top_img/mysql.jpg
+description: 这里记录了在Window系统上日常使用MySQL遇到的问题。
 ---
 *我们在日常开发中，使用MySQL总会遇到各种各样的问题，这篇博客就记录总结一下Window系统下MySQL常见的问题和解决方法。*
 
@@ -19,7 +20,7 @@ cover: /img/myphotos/mysql.jpg
 
 网上的资料说MySQL Server 5.7之后的版本都默认安装目录下不存在my.ini文件和data文件夹。那么需要我们自己创建。
 
-![MySQL安装目录](/img/myphotos/mysqlcata.png)
+![MySQL安装目录](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/mysql/mysqlcata.png)
 
 **首先要把MySQL安装目录下的bin目录添加到系统环境变量中，因为后面会在cmd中用到MySQL自带的命令。**
 
@@ -91,7 +92,7 @@ mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '重设密码';
 
 ## 编码问题
 
-我们在使用数据库驱动连接到数据库，进行SQL语句查询时，经常会遇到一些编码格式的问题，比如用insert语句插入一条带有中文的记录，在数据库中中文会显示为???，明显编码格式错误。
+我们在使用数据库驱动连接到数据库，进行SQL语句查询时，经常会遇到一些编码格式的问题，比如用insert语句插入一条带有中文的记录，在数据库中中文会显示为`???`，明显编码格式错误。
 
 首先要确保数据库是utf-8编码格式的，可以用下面这条SQL语句创建数据库：
 

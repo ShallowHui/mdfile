@@ -3,7 +3,8 @@ title: Lambda表达式
 date: 2020-04-05 20:32:52
 tags: Lambda表达式
 categories: Python
-cover: /img/myphotos/lambda.jpeg
+cover: https://cdn.jsdelivr.net/gh/shallowhui/cdn/top_img/lambda.jpeg
+description: 这篇文章简单地介绍了Python中的匿名函数表达式及其用法。
 ---
 ## lambda表达式
 

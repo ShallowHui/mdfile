@@ -3,7 +3,8 @@ title: MacOS下用zsh配置环境变量
 date: 2020-04-15 15:03:29
 tags: MacOS
 categories: OS
-cover: /img/myphotos/mac.jpg
+cover: https://cdn.jsdelivr.net/gh/shallowhui/cdn/top_img/mac.jpg
+description: 网上很多在MacOS上配置环境变量的教程都过时了，这里介绍了在zsh这个Shell上，如何用Vim配置环境变量。
 ---
 ## 前言
 
@@ -21,13 +22,13 @@ $ cat /etc/shells
 
 我们可以看到：
 
-![mac下的Shell](/img/myphotos/shell.png)
+![mac下的Shell](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/mac/shell.png)
 
-本来，Linux和MacOS都是以bash作为默认的Shell，但是，MacOS它变了。Apple官方宣布，MacOS从`Catalina`这个大版本之后，把zsh作为默认的Shell。
+本来，Linux和MacOS都是以bash作为默认的Shell，不过Apple官方宣布，MacOS从`Catalina`这个大版本之后，把zsh作为默认的Shell。
 
-![Catalina](/img/myphotos/catalina.png)
+![Catalina](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/mac/catalina.png)
 
-zsh这个Shell的功能和易用程度我不去评论，这样一来，网上很多以bash作为默认Shell的配置环境变量的教程就过时了。
+这样一来，网上很多以bash作为默认Shell的配置环境变量的教程就过时了。
 
 ## 以zsh配置环境变量
 
@@ -49,11 +50,11 @@ sudo vim /etc/paths
 
 输入电脑密码后：
 
-![vim](/img/myphotos/vim.png)
+![vim](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/mac/vim.png)
 
 注意，这时我们要在英文输入法的状态下按一次`i`，这样Vim就会从命令模式转变为输入模式，即insert。
 
-![insert](/img/myphotos/vim_insert.png)
+![insert](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/mac/vim_insert.png)
 
 现在我们就可以输入我们要保存的环境变量了，注意一行一条路径。
 

@@ -3,7 +3,8 @@ title: 正则表达式
 date: 2020-04-11 13:43:29
 tags: 正则表达式
 categories: Java
-cover: /img/myphotos/re.jpg
+cover: https://cdn.jsdelivr.net/gh/shallowhui/cdn/top_img/re.jpg
+description: 正则表达式的功能十分强大，可以让我们在编程中省去许多麻烦，无论是前端或是后端程序员都应该掌握这个工具，这篇文章系统地讲解了下正则表达式。
 ---
 ## 前言
 
@@ -513,4 +514,4 @@ public class Demo{
 
 这里推荐一个正则表达式的在线测试[网站](https://regexr.com)：
 
-![在线正则表达式测试](\img\myphotos\reonline.png)
+![在线正则表达式测试](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/regularexpression/reonline.png)

@@ -3,7 +3,8 @@ title: Spring的IoC和DI
 date: 2020-06-21 13:29:29
 tags: Spring
 categories: Java
-cover: /img/myphotos/spring.png
+cover: https://cdn.jsdelivr.net/gh/shallowhui/cdn/top_img/spring.png
+description: 这篇文章介绍了Spring框架的两大核心特性之一的IoC，讲解了如何使用Sping这个大工厂来生产和管理Bean。
 ---
 ## Bean
 
@@ -63,7 +64,7 @@ Spring的配置文件支持XML和Properties两种格式的文件，一般使用X
 
 `<bean>`元素的常用属性及子元素：
 
-![bean元素的常用属性及子元素](/img/myphotos/spring-bean.png)
+![bean元素的常用属性及子元素](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/springIoCAndDI/spring_bean.png)
 
 通常在XML文件中只需配置Bean的id和class属性就可以了：
 
@@ -173,7 +174,7 @@ Bean中的依赖对象，可以通过Spring的依赖注入方式进行装配，�
 
 Spring中定义了一系列的注解：
 
-![Spring的注解](/img/myphotos/spring-annotation.png)
+![Spring的注解](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/springIoCAndDI/spring_annotation.png)
 
 在Bean类上添加相应层的注解，接着在依赖对象上添加@Autowired或@Resource注解，然后在Spring配置文件中完成对相应的Bean的配置，不用设置`<property>`，就可以实现依赖注入了。
 
@@ -218,7 +219,7 @@ public class ServiceBeanImpl{
 
 自动装配就是在不用注解的方式下，通过`<bean>`元素的autowire属性来进行自动装配。
 
-![Bean的自动装配](/img/myphotos/spring_bean_autowire.png)
+![Bean的自动装配](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/springIoCAndDI/spring_bean_autowire.png)
 
 ## 总结
 

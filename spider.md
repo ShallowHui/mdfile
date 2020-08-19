@@ -3,7 +3,8 @@ title: Python爬虫
 date: 2020-03-25 13:53:52
 tags: 网络爬虫
 categories: Python
-cover: /img/myphotos/spider.jpg
+cover: https://cdn.jsdelivr.net/gh/shallowhui/cdn/top_img/spider.jpg
+description: 爬虫技术现在也十分火热，这篇文章就介绍了如何用Python来实现一个入门的爬虫案例。
 ---
 ## 网络爬虫简介
 
@@ -59,7 +60,7 @@ catalogHtml=response.text #获取目录网页的html源代码
 print(catalogHtml)
 ```
 
-![HTML](/img/myphotos/spiderhtml.png)
+![HTML](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/spider/spiderhtml.png)
 
 ### 定位数据，采集数据
 
@@ -76,9 +77,9 @@ chapter_list=re.findall(r'href=\'(.*?)\' >(.*?)<',chapterDiv)
 print(chapter_list)
 ```
 
-![list](/img/myphotos/spiderlist.png)
+![list](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/spider/spiderlist.png)
 
-+ 可以看出findall函数返回一个匹配结果形成的列表，我会另写一篇博客来专门介绍用来在字符串中匹配特定内容的[正则表达式](http://zunhuier.club/2020/04/11/regularexpression/)。
++ 可以看出findall函数返回一个匹配结果形成的列表，我会另写一篇博客来专门介绍用来在字符串中匹配特定内容的[正则表达式](https://zunhuier.club/2020/04/11/regularexpression/)。
 
 ### 清洗数据，打印输出
 
@@ -91,7 +92,7 @@ for chapter in chapter_list:
     print(chapter_url,chapter_title)
 ```
 
-![Result](/img/myphotos/spiderresult.png)
+![Result](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/spider/spiderresult.png)
 
 ### 分析数据
 

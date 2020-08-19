@@ -3,7 +3,8 @@ title: Spring入门
 date: 2020-06-21 13:29:29
 tags: Spring
 categories: Java
-cover: /img/myphotos/spring.png
+cover: https://cdn.jsdelivr.net/gh/shallowhui/cdn/top_img/spring.png
+description: Spirng一统Java后端开发领域，是每一个Java后端开发程序员必学的东西。这里大致介绍了下Spring框架的体系结构，顺便提及了如何去下载Spring，在项目中引入Spring框架。
 ---
 ## Spring简介
 
@@ -29,7 +30,7 @@ Spring框架采用的是分层架构，它的一系列功能被分为20多个模
 4. **其它模块：**
     Spring的其它模块还有AOP、Aspects等模块。可以提供面向切面编程的实现，以及一些其它功能。
 
-![Spring框架的体系结构](/img/myphotos/spring-overview.png)
+![Spring框架的体系结构](https://cdn.jsdelivr.net/gh/shallowhui/cdn/img/spring/spring_overview.png)
 
 ## Spring的下载和使用
 
