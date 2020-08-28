@@ -58,7 +58,7 @@ Spring的第一个版本是在2004年发布的，经过10多年的发展，截�
 
 + spring-expression-版本号.RELEASE.jar
 
-实际使用Spring开发时，除了要用到Spring自带的jar包，还需要导入一个Spring的依赖包，`commons-logging-1.2.jar`。这个依赖包可以通过下面的网址进行下载：
+实际使用Spring开发时，除了要用到Spring自带的jar包，还需要导入一个Spring的依赖包，`commons-logging.jar`。这个依赖包可以通过下面的网址进行下载：
 
 [http://commons.apache.org/proper/commons-logging/download_logging.cgi](http://commons.apache.org/proper/commons-logging/download_logging.cgi)
 

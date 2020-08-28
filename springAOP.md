@@ -291,7 +291,9 @@ public class JDKProxyTest {
 
 ### 基于AspectJ的实现
 
-AspectJ是一个基于Java的AOP框架，提供了强大的AOP功能。Spring2.0之后，AOP模块就对AspectJ进行了支持，官方也鼓励使用AspectJ来实现AOP，上面的代理工厂反倒很少使用。
+AspectJ是一个基于Java的AOP框架，提供了强大的AOP功能。Spring2.0之后，AOP模块就对AspectJ进行了支持，官方也鼓励使用AspectJ来实现AOP，上面的代理工厂反倒很少使用。使用AspectJ需要额外导入一个包：`aspectjweaver.jar`。这个依赖包可以通过下面的网址进行下载：
+
+[http://mvnrepository.com/artifact/org.aspectj/aspectjweaver](http://mvnrepository.com/artifact/org.aspectj/aspectjweaver)
 
 AspectJ框架实现AOP的具体方式有下面两种。
 
