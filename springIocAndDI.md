@@ -1,6 +1,6 @@
 ---
 title: Spring的IoC和DI
-date: 2020-06-21 13:29:29
+date: 2020-06-26 10:29:29
 tags: Spring
 categories: Java
 cover: https://cdn.jsdelivr.net/gh/shallowhui/cdn/top_img/spring.png
