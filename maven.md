@@ -50,7 +50,7 @@ maven官网下载：[https://maven.apache.org/download.cgi](https://maven.apache
 
 ``` xml
 <profile>
-    <id>jdk8</id>
+    <id>jdk-1.8</id>
     <activation>
         <activeByDefault>true</activeByDefault>
         <jdk>1.8</jdk>
