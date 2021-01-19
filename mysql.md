@@ -1,8 +1,10 @@
 ---
 title: Window下MySQL常见问题解决
 date: 2020-03-28 20:12:02
-tags: Window
-categories: MySQL
+tags: Windows
+categories:
+    - 开发环境配置
+    - MySQL
 cover: https://cdn.jsdelivr.net/gh/shallowhui/cdn/top_img/mysql.jpg
 description: 这里记录了在Window系统上日常使用MySQL遇到的问题。
 ---
