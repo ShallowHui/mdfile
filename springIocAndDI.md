@@ -213,7 +213,7 @@ public class ServiceBeanImpl{
 
 加了这句话后，Spring就会在指定包下扫描出加了@Component、@Repository、@Service之类的注解的Bean。如果这些注解后面没有指明Bean的id，Spring默认会以类名(但是首字母小写)作为Bean的id。
 
-这样在配置文件中就不用配置Bean了，一句话就搞定了。而且基于注解的装配方式还有一个好处，就是不用为属性写setter()方法。
+这样在配置文件中就不用配置Bean了，一句话就搞定了。
 
 + 注意，Spring4.0以上的版本，使用注解扫描时，还需要额外在项目中导入Spring AOP模块的spring-aop-版本号.RELEASE.jar包。
 
