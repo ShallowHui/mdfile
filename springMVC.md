@@ -1,7 +1,9 @@
 ---
 title: SpringMVC入门
 date: 2020-10-14 15:50:12
-tags: SpringMVC
+tags: 
+    - SpringMVC
+    - Spring
 categories: Java
 cover: https://cdn.jsdelivr.net/gh/shallowhui/cdn/top_img/spring.png
 description: Spring是SSM框架的基石，而Spring本身提供的SpringMVC则是实现MVC设计模式的轻量级框架，我们可以用SpringMVC来开发MVC的控制层。
